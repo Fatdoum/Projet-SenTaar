@@ -311,6 +311,9 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 = 2.3.5 =
 * Added the 'Re-Order Slides' sub-page, which allows one to easily change the order of slides within a Slide Anything slider with a 'drag-and-drop' interface
 
+= 2.3.6 =
+* Added the 'Show 1 Dot Per Slide' checkbox option which when checked displays 1 pagination dot per slide (instead of 1 pagination dot per page of slides)
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -524,3 +527,6 @@ Adding a SLIDE ANYTHING slider using the WordPress 5.0 'Block Editor' is pretty 
 
 = 2.3.5 =
 * Added the 'Re-Order Slides' sub-page, which allows one to easily change the order of slides within a Slide Anything slider with a 'drag-and-drop' interface
+
+= 2.3.6 =
+* Added the 'Show 1 Dot Per Slide' checkbox option which when checked displays 1 pagination dot per slide (instead of 1 pagination dot per page of slides)

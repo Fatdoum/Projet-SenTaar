@@ -108,6 +108,7 @@ function cpt_slider_plugin_activation() {
 		update_post_meta($cpt_id, 'sa_slide_padding_lr', 5);
 		update_post_meta($cpt_id, 'sa_slide_margin_lr', 0);
 		update_post_meta($cpt_id, 'sa_autohide_arrows', '1');
+		update_post_meta($cpt_id, 'sa_dot_per_slide', '0');
 		update_post_meta($cpt_id, 'sa_slide_icons_location', 'Center Center');
 		update_post_meta($cpt_id, 'sa_slide_icons_visible', '0');
 		update_post_meta($cpt_id, 'sa_slide_icons_color', 'white');
@@ -1683,11 +1684,24 @@ function cpt_slider_style_content($post) {
 	if ($autohide_arrows == '') {
 		$autohide_arrows = '1';
 	}
-	echo "<div class='ca_style_setting_line'><span>Autohide Arrows</span>";
+	echo "<div class='ca_style_setting_line'><span style='width:140px;'>Autohide Arrows</span>";
 	if ($autohide_arrows == '1') {
 		echo "<input type='checkbox' id='sa_autohide_arrows' name='sa_autohide_arrows' value='1' checked/>";
 	} else {
 		echo "<input type='checkbox' id='sa_autohide_arrows' name='sa_autohide_arrows' value='1'/>";
+	}
+	echo "</div>\n";
+	
+	// SHOW DOT PER SLIDE
+	$dot_per_slide = get_post_meta($post->ID, 'sa_dot_per_slide', true);
+	if ($dot_per_slide == '') {
+		$dot_per_slide = '0';
+	}
+	echo "<div class='ca_style_setting_line'><span style='width:140px;'>Show 1 Dot Per Slide</span>";
+	if ($dot_per_slide == '1') {
+		echo "<input type='checkbox' id='sa_dot_per_slide' name='sa_dot_per_slide' value='1' checked/>";
+	} else {
+		echo "<input type='checkbox' id='sa_dot_per_slide' name='sa_dot_per_slide' value='1'/>";
 	}
 	echo "</div>\n";
 
@@ -2483,6 +2497,11 @@ function cpt_slider_save_postdata() {
 			update_post_meta($post->ID, 'sa_autohide_arrows', '1');
 		} else {
 			update_post_meta($post->ID, 'sa_autohide_arrows', '0');
+		}
+		if (isset($_POST['sa_dot_per_slide']) && ($_POST['sa_dot_per_slide'] == '1')) {
+			update_post_meta($post->ID, 'sa_dot_per_slide', '1');
+		} else {
+			update_post_meta($post->ID, 'sa_dot_per_slide', '0');
 		}
 		if (isset($_POST['sa_slide_icons_visible']) && ($_POST['sa_slide_icons_visible'] == '1')) {
 			update_post_meta($post->ID, 'sa_slide_icons_visible', '1');

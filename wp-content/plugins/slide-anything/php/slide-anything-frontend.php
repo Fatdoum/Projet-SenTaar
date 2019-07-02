@@ -213,6 +213,15 @@ function slide_anything_shortcode($atts) {
 			} else {
 				$slide_data['autohide_arrows'] = 'false';
 			}
+			$slide_data['dot_per_slide'] = '0';
+			if (isset($metadata['sa_dot_per_slide'])) {
+				$slide_data['dot_per_slide'] = $metadata['sa_dot_per_slide'][0];
+				if ($slide_data['dot_per_slide'] != '1') {
+					$slide_data['dot_per_slide'] = '0';
+				}
+			} else {
+				$slide_data['dot_per_slide'] = '0';
+			}
 			$slide_data['slide_icons_visible'] = $metadata['sa_slide_icons_visible'][0];
 			if ($slide_data['slide_icons_visible'] == '1') {
 				$slide_data['slide_icons_visible'] = 'true';
@@ -754,6 +763,9 @@ function slide_anything_shortcode($atts) {
 			$output .= "			autoplaySpeed : ".esc_attr($slide_data['slide_transition']).",\n";
 			$output .= "			navSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
 			$output .= "			dotsSpeed : ".esc_attr($slide_data['slide_transition']).",\n";
+			if ($slide_data['dot_per_slide'] == '1') {
+				$output .= "			dotsEach : 1,\n";
+			}
 			$output .= "			loop : ".esc_attr($slide_data['loop_slider']).",\n";
 			$output .= "			nav : ".esc_attr($slide_data['nav_arrows']).",\n";
 			$output .= "			navText : ['',''],\n";

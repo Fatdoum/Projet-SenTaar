@@ -775,7 +775,8 @@ common
 	padding: 10px 16px;
 	position: fixed;
 	opacity: 0.5;
-	filter: alpha(opacity = 50);
+	z-index: 9999;
+	filter: alpha(opacity=50);
 
 	/* For IE8 and earlier */
 	right: 20px;
@@ -1137,6 +1138,14 @@ Header
 		content: "\f0d5";
 	}
 
+	&[href*="pinterest.com"]::before {
+		content: "\f231";
+	}
+
+	&[href*="instagram.com"]::before {
+		content: "\f16d";
+	}
+
 	&[href*="youtube.com"]::before {
 		content: "\f16a";
 	}
@@ -1145,6 +1154,8 @@ Header
 	&[href*="plus.google.com"]:hover,
 	&[href*="linkedin.com"]:hover,
 	&[href*="facebook.com"]:hover,
+	&[href*="pinterest.com"]:hover,
+	&[href*="instagram.com"]:hover,
 	&[href*="youtube.com"]:hover {
 		color: #333;
 	}
@@ -1494,6 +1505,7 @@ a,
 			border-color: #30afb8;
 			color: #30afb8;
 		}
+
 		cursor: pointer;
 		color: #99a3b0;
 		font-size: 14px;
@@ -2962,7 +2974,7 @@ Feature product
 			-ms-transform: scale(1);
 			-o-transform: scale(1);
 			transform: scale(1);
-			background: transparent	linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5)) repeat scroll 0 0;
+			background: transparent linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5)) repeat scroll 0 0;
 
 			&:before,
 			span {
@@ -2975,6 +2987,7 @@ Feature product
 			.feature-desc-wrap {
 				display: none;
 			}
+
 			top: auto;
 			-webkit-transform: translate(0);
 			-moz-transform: translate(0);
@@ -3602,6 +3615,7 @@ Blogs
 	a {
 		color: #239ca4;
 	}
+
 	color: #239ca4;
 }
 
@@ -3968,7 +3982,7 @@ Archive
 	}
 
 	.entry-content-block {
-		width: 60%;
+		width: 100%;
 	}
 }
 
@@ -4029,6 +4043,21 @@ Archive
 	.entry-content-block {
 		position: unset;
 		width: 100%;
+	}
+}
+
+.post-type-archive-portfolio {
+
+	.entry-thumbnail {
+		float: left;
+		clear: both;
+		margin-bottom: 40px;
+		margin-right: 30px;
+	}
+
+	.navigation.posts-navigation {
+		width: 100%;
+		clear: both;
 	}
 }
 
@@ -4630,6 +4659,22 @@ WooCommerce
 
 			&:first-of-type:before {
 				content: none;
+			}
+		}
+	}
+}
+
+#secondary{
+	.widget_products {
+
+		ul {
+
+			&.product_list_widget li img {
+				padding: 0 0 20px 0;
+			}
+
+			li {
+				clear: both;
 			}
 		}
 	}
